@@ -1,5 +1,5 @@
 from django.db import models
-
+from s3direct.fields import S3DirectField
 class Post(models.Model):
     title = models.CharField(max_length=75)
     address = models.CharField(max_length=100)
@@ -12,3 +12,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Image(models.Model):
+    post = models.ForeignKey("Post", on_delete=models.CASCADE)
+    image = S3DirectField(dest='images', blank=True)
