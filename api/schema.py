@@ -1,8 +1,8 @@
 import graphene
 
-from graphene_django import DjangoObjectType, DjangoListField 
+from graphene_django import DjangoObjectType 
 from .models import Post
-
+from .mutations import CreatePost
 class PostType(DjangoObjectType):
     class Meta:
         model = Post
@@ -18,5 +18,7 @@ class Query(graphene.ObjectType):
     def resolve_book(self, info, post_id):
         return Post.objects.get(pk=post_id)
     
+class Mutation(graphene.ObjectType):
+    create_post = CreatePost.Field(required=True)
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query, mutation=Mutation)

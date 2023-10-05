@@ -1,0 +1,16 @@
+[
+    {
+        "model": "api.post",
+        "pk": 1,
+        "fields": {
+            "title": "EXPERIMENT",
+            "address": "URLA",
+            "property_type": "VILLA",
+            "price": 2500,
+            "for_sale": true,
+            "room_number": 6,
+            "year_built": 1996,
+            "square_meter": 2000
+        }
+    }
+]
